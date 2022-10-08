@@ -18,6 +18,12 @@ class CatalogService extends cds.ApplicationService { init(){
     return { stock }
   })
 
+  // Dummy operation to demonstrate issue with global SELECT
+  this.before ('READ', ListOfBooks, async req => {
+    let dummy = await SELECT.from(ListOfBooks);
+    console.log('Dummy operation read all books', dummy);
+  })
+
   // Add some discount for overstocked books
   this.after ('READ', ListOfBooks, each => {
     if (each.stock > 111) each.title += ` -- 11% discount!`

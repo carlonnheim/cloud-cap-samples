@@ -10,9 +10,11 @@
     "index.js"
   ],
   "dependencies": {
-    "@sap/cds": ">=5.9",
+    "@capire/data-viewer": "file:../data-viewer",
+    "@sap/cds": "^6.1.3",
     "express": "^4.17.1",
-    "passport": ">=0.4.1"
+    "passport": ">=0.4.1",
+    "sqlite3": "^5.1.2"
   },
   "scripts": {
     "genres": "cds serve test/genres.cds",
